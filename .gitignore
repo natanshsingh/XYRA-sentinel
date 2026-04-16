@@ -4,3 +4,5 @@ __pycache__/
 output_stream/
 stream_input/
 models/
+.DS_Store
+*.pt

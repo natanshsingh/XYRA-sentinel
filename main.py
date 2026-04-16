@@ -11,7 +11,6 @@ while True:
     if not ret:
         break
 
-    # Object detection
     results = model(frame)
     annotated = results[0].plot()
 

@@ -77,7 +77,7 @@ if page == "Overview":
 
             col1.metric(
                 "Current Status",
-                "Threat" if label == "🚨 SHOPLIFTING" else "Normal"
+                "Threat" if label == "SHOPLIFTING" else "Normal"
             )
 
             col2.metric(

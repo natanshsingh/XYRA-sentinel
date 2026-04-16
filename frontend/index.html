@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYRA Sentinel - AI Surveillance</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Load Three.js from CDN -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+</head>
+<body>
+    <div id="canvas-container"></div>
+    
+    <div id="ui-layer">
+        <header>
+            <div class="logo">
+                <span class="highlight">XYRA</span> SENTINEL
+            </div>
+            <div class="status-indicator">
+                <div class="dot pulsing"></div>
+                <span id="system-status">System Active</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="panel side-panel left-panel">
+                <div class="glass-container">
+                    <h2>Live Vision</h2>
+                    <div class="video-wrapper">
+                        <!-- Feed directly from the API endpoint -->
+                        <img id="camera-feed" src="/api/video_feed" alt="Live Camera Feed" />
+                        <div class="video-overlay"></div>
+                    </div>
+                </div>
+
+                <div class="glass-container stats-container mt-4">
+                    <h2>Environmental Stats</h2>
+                    <div class="stat-row">
+                        <span class="label">Targets Tracked</span>
+                        <span class="value" id="val-people">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="label">Processing Latency</span>
+                        <span class="value">~45ms</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel side-panel right-panel">
+                <div class="glass-container">
+                    <h2>Threat Assessment</h2>
+                    <div class="risk-meter">
+                        <svg viewBox="0 0 100 50">
+                            <path class="meter-bg" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke-width="12" stroke-linecap="round"/>
+                            <path class="meter-value" id="meter-path" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke-width="12" stroke-linecap="round"/>
+                        </svg>
+                        <div class="risk-label" id="risk-level-text">LOW</div>
+                    </div>
+                </div>
+
+                <div class="glass-container score-container mt-4">
+                    <h2>Behavioral Score</h2>
+                    <div class="score-display">
+                        <div class="score-number" id="val-score">0.00</div>
+                    </div>
+                    <div class="status-text target-normal" id="threat-status">Monitoring Normal</div>
+                </div>
+                
+                <div class="glass-container log-container mt-4">
+                    <h2>System Logs</h2>
+                    <div class="log-stream" id="log-stream">
+                        <div class="log-entry system">System initialized. Awaiting data stream...</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
