@@ -169,7 +169,7 @@ Returns real-time system metrics:
 - Real-time alert system (SMS/Email)  
 
 ---
-
+<img width="823" height="487" alt="Screenshot 2026-05-06 at 5 37 29 PM" src="https://github.com/user-attachments/assets/62d523aa-1ecb-4209-8361-0ffb5df3346d" />
 ## 📄 License
 
 This project is licensed under the MIT License.
